@@ -14,7 +14,7 @@ RUN apt-get -y update \
 
 # Install composer
 RUN curl -sS https://getcomposer.org/installer -o composer-setup.php \
-    && php composer-setup.php --install-dir=/usr/local/bin --filename=composer \
+    && php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 
 # Install composer packages
 RUN cd /home/websocket \
