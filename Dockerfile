@@ -15,10 +15,10 @@ RUN apt-get -y update \
 # Install composer
 RUN curl -sS https://getcomposer.org/installer -o composer-setup.php \
     && php composer-setup.php --install-dir=/usr/local/bin --filename=composer \
-    && cd /home/websocket
 
 # Install composer packages
-RUN composer update
+RUN cd /home/websocket \
+    && composer update
 
     
 EXPOSE 8080
