@@ -10,7 +10,8 @@ ADD .	/home/websocket
 # Update and install dependencies
 RUN apt-get -y update \
     && apt-get -y upgrade \
-    && apt-get -y install php php-cli php-json php-mbstring git curl unzip
+    && apt-get -y install libevent libevent-dev, php php-cli php-json php-mbstring git curl unzip \
+    && pecl install ev
 
 # Install composer
 RUN curl -sS https://getcomposer.org/installer -o composer-setup.php \
