@@ -53,9 +53,6 @@ class Server implements MessageComponentInterface {
      * @return void
      */
     public function onMessage(ConnectionInterface $from, $msg): void {
-        $numRecv = count($this->clients) - 1;
-        echo sprintf('Connection %d sending message "%s" to %d other connection%s' . "\n"
-            , $from->resourceId, $msg, $numRecv, $numRecv == 1 ? '' : 's');
 
         // decode incoming message into an associative array
         $incoming_message = json_decode($msg, true);
