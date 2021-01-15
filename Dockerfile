@@ -10,9 +10,12 @@ ADD .	/home/websocket
 # Update and install dependencies
 RUN apt-get -y update \
     && apt-get -y upgrade \
-    && apt-get -y install libevent-dev php php-pear php-dev php-cli php-json php-mbstring git curl unzip \
+    && apt-get -y install pkg-config libevent-dev php php-pear php-dev php-cli php-json php-mbstring git curl unzip \
     && pecl install ev \
-    && pecl install event
+    && pecl install event \
+    && touch /etc/php/7.4/cli/conf.d/event.ini \
+    && echo "extension=ev.so" > /etc/php/7.4/cli/conf.d/event.ini \
+    && echo "extension=event.so" > /etc/php/7.4/cli/conf.d/event.ini
 
 # Install composer
 RUN curl -sS https://getcomposer.org/installer -o composer-setup.php \
