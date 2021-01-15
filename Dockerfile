@@ -14,8 +14,8 @@ RUN apt-get -y update \
     && pecl install ev \
     && pecl install event \
     && touch /etc/php/7.4/cli/conf.d/event.ini \
-    && echo "extension=ev.so" > /etc/php/7.4/cli/conf.d/event.ini \
-    && echo "extension=event.so" > /etc/php/7.4/cli/conf.d/event.ini
+    && echo "extension=ev.so" >> /etc/php/7.4/cli/conf.d/event.ini \
+    && echo "extension=event.so" >> /etc/php/7.4/cli/conf.d/event.ini
 
 # Install composer
 RUN curl -sS https://getcomposer.org/installer -o composer-setup.php \
